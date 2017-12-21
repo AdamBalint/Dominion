@@ -9,6 +9,7 @@ Class Descriptions:
 |    player.py     | Contains player, hand and deck information      |
 |     game.py      | Contains general game information such as supply pile setup and player management      |
 |    play_game.py  |   Currently a debugging script, however this will manage the main game loop |
+|    agent.py | Contains the interface for the different AI agents  |
 
 
 Features to add:
