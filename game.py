@@ -5,11 +5,11 @@ import six
 
 from player import Player
 from cards import *
-from agent import RandomAgent
+from agent import *
 
 
 class Game(object):
-    def __init__(self, n_players, agents={}, card_set='random', verbose=False):
+    def __init__(self, n_players, agents={}, card_set='random', verbose=True):
         '''Initialize a new game, with n players.
 
         Args:

@@ -1,11 +1,11 @@
 from game import Game
-from agent import RandomAgent
+from agent import *
 from cards import *
 
 
 def play_game():
-    agent_dict = {'DemoBot 1': RandomAgent()}
-    demo_game = Game(n_players=3, agents=agent_dict, card_set='base', verbose=True)
+    agent_dict = {'DemoBot 1': ProbabilisticAgent()}
+    demo_game = Game(n_players=3, agents=agent_dict, card_set='base', verbose=False)
 
     demo_game.players[0].display_deck()
     print("")
@@ -20,6 +20,12 @@ def play_game():
     print("")
 
     scores = demo_game.play_game()
+    print (scores)
+
+    for player in demo_game.players:
+        print (player.player_id)
+        player.hand.discard_hand()
+        player.display_deck()
 
 
 if __name__ == '__main__':
