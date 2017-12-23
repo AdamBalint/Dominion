@@ -3,7 +3,7 @@
 import click
 
 from dominion.game import Game
-from dominion.agent import HMIAgent
+from dominion.agent import *
 
 
 @click.command()
@@ -19,7 +19,7 @@ def play_game(card_set, num_players, verbose):
     """Plays a game of Dominion, displaying the initial game state and then
     running the game simulation.
     """
-    agent_dict = {'Human Player 1': HMIAgent()}
+    agent_dict = {'Human Player 1': RandomAgent()}
     demo_game = Game(n_players=num_players,
                      agents=agent_dict,
                      card_set=card_set,
@@ -37,8 +37,8 @@ def play_game(card_set, num_players, verbose):
     demo_game.players[0].display_discard_pile()
     print("")
 
-    demo_game.play_game()
-
+    victory_point_count = demo_game.play_game()
+    print(victory_point_count)
 
 if __name__ == '__main__':
     play_game()
